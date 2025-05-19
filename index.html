@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid-Ul-Adha Mubarak!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #002244;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255, 215, 0, 0.7);
+            border-radius: 50%;
+            animation: blink 2s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% { opacity: 0.2; transform: scale(0.5); }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.2; transform: scale(1); }
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+            border: 2px solid #FFD700;
+            max-width: 500px;
+            width: 90%;
+            z-index: 1;
+            position: relative;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #FFD700;
+        }
+
+        .greeting-text {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #FFD700;
+            animation: fadeInGrow 1.5s ease-in-out;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInGrow {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .input-group {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: calc(100% - 26px);
+            max-width: 300px;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 8px 5px;
+        }
+
+        #createLinkButton {
+            background-color: #FFD700;
+            color: #003366;
+        }
+        #createLinkButton:hover {
+            background-color: #e6c300;
+        }
+
+        #copyLinkOnlyButton {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        #copyLinkOnlyButton:hover {
+            background-color: #dcdcdc;
+        }
+
+        #shareButton {
+            background-color: #25D366;
+            color: white;
+        }
+        #shareButton:hover {
+            background-color: #1DAA50;
+        }
+        #shareButton svg {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
+        .actions-area {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stars-container"></div>
+
+    <div class="container">
+        <img src="bakrid.gif" alt="Eid-Ul-Adha Animation">
+
+        <div id="greetingMessage" class="greeting-text" style="display: none;">
+            <!-- Greeting will be injected here by JavaScript -->
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="nameInput" placeholder="अपना नाम यहां लिखें">
+            <button id="createLinkButton" onclick="generateWishLink()">लिंक बनाएं</button>
+        </div>
+
+        <div id="actionsArea" class="actions-area">
+            <button id="shareButton" onclick="initiateShare()">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M19.228 14.428c-.298-.149-1.757-.868-2.029-.968-.272-.099-.47-.149-.669.149-.199.298-.767.968-.941 1.167-.173.199-.347.224-.645.074-.298-.149-1.262-.468-2.403-1.483-.888-.79-1.484-1.774-1.658-2.072-.173-.298-.019-.458.13-.608.134-.134.298-.347.447-.521.149-.174.199-.298.298-.497.099-.199.05-.373-.025-.522-.075-.149-.669-1.613-.916-2.207-.241-.58-.488-.503-.669-.51-.173-.008-.373-.008-.572-.008-.199 0-.522.074-.79.373-.272.298-1.04 1.016-1.04 2.477s1.065 2.871 1.214 3.071c.149.199 2.095 3.2 5.076 4.487.709.306 1.262.488 1.699.628.729.223 1.396.191 1.915.116.594-.082 1.757-.717 2.004-1.412.247-.695.247-1.29.173-1.412-.074-.124-.272-.199-.57-.348zM12.072 2.022c-5.521 0-9.999 4.478-9.999 9.999 0 1.774.464 3.453 1.283 4.929L2.022 22l5.232-1.372a9.946 9.946 0 004.818 1.238h.002c5.521 0 9.999-4.478 9.999-9.999s-4.478-9.999-9.999-9.999zm0 18.222c-1.607 0-3.141-.402-4.49-1.144l-.321-.191-3.328.873.888-3.248-.21-.351a8.204 8.204 0 01-1.312-4.71c0-4.534 3.691-8.224 8.225-8.224s8.224 3.691 8.224 8.224c0 4.534-3.69 8.224-8.224 8.224z"></path>
+                </svg>
+                शेयर करें
+            </button>
+            <button id="copyLinkOnlyButton" onclick="copyLinkOnly()">सिर्फ लिंक कॉपी करें</button>
+        </div>
+    </div>
+
+    <script>
+        const greetingElement = document.getElementById('greetingMessage');
+        const nameInputElement = document.getElementById('nameInput');
+        const actionsAreaDiv = document.getElementById('actionsArea');
+
+        let senderNameFromUrl = '';
+        let generatedLinkGlobal = '';
+
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        function createStars() {
+            const container = document.getElementById('stars-container');
+            const numStars = 100; // Adjust number of stars if needed
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1; // Star size between 1px and 4px
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 2}s`; // Randomize blink start
+                star.style.animationDuration = `${Math.random() * 1.5 + 1.5}s`; // Randomize blink speed
+                container.appendChild(star);
+            }
+        }
+
+        window.onload = function() {
+            createStars();
+            senderNameFromUrl = getUrlParameter('from');
+
+            if (senderNameFromUrl) {
+                greetingElement.innerHTML = `<strong>${senderNameFromUrl}</strong> की तरफ से <br>आपको और आपके परिवार को बक़रीद मुबारक! ✨`;
+                nameInputElement.placeholder = "अपना नाम लिखें (शुभकामनाएं आगे भेजने के लिए)";
+            } else {
+                greetingElement.innerHTML = `आपको और आपके परिवार को बक़रीद मुबारक! ✨`;
+                nameInputElement.placeholder = "अपना नाम लिखें (शुभकामनाएं भेजने के लिए)";
+            }
+            greetingElement.style.display = 'block';
+        };
+
+        function generateWishLink() {
+            const currentName = nameInputElement.value.trim();
+            if (currentName === "") {
+                alert("कृपया अपना नाम दर्ज करें!");
+                return;
+            }
+            const baseUrl = window.location.origin + window.location.pathname;
+            generatedLinkGlobal = `${baseUrl}?from=${encodeURIComponent(currentName)}`;
+            actionsAreaDiv.style.display = 'block'; // Show action buttons
+        }
+
+        async function performCopy(linkToCopy, successMessage, failureMessage) {
+            try {
+                await navigator.clipboard.writeText(linkToCopy);
+                alert(successMessage);
+                return true;
+            } catch (err) {
+                console.error('Primary copy (navigator.clipboard) failed:', err);
+                // Fallback for older browsers or if clipboard API fails
+                const textArea = document.createElement("textarea");
+                textArea.value = linkToCopy;
+                textArea.style.position = 'fixed'; 
+                textArea.style.left = '-9999px'; // Move out of screen
+                document.body.appendChild(textArea);
+                textArea.focus(); 
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    alert(successMessage + ' (Fallback)');
+                    document.body.removeChild(textArea);
+                    return true;
+                } catch (copyErr) {
+                    alert(failureMessage);
+                    console.error('Fallback copy (document.execCommand) failed:', copyErr);
+                    document.body.removeChild(textArea);
+                    return false;
+                }
+            }
+        }
+
+        async function initiateShare() {
+            if (!generatedLinkGlobal) {
+                alert("पहले 'लिंक बनाएं' पर क्लिक करें!");
+                return;
+            }
+            const sharerName = nameInputElement.value.trim();
+            if (sharerName === "") {
+                alert("शेयर करने के लिए कृपया अपना नाम दर्ज करें!");
+                return;
+            }
+
+            const pageTitle = `✨ ${sharerName} की तरफ से बक़रीद मुबारक! ✨`;
+            const webShareBodyText = `आपको और आपके परिवार को *${sharerName}* की तरफ से ईद-उल-अज़हा की दिली मुबारकबाद!\n\nयह विशेष शुभकामना संदेश देखें:`; // URL will be added by navigator.share
+
+            if (navigator.share) { // Check for Web Share API support
+                try {
+                    await navigator.share({
+                        title: pageTitle,
+                        text: webShareBodyText,
+                        url: generatedLinkGlobal,
+                    });
+                    console.log('Wish shared successfully via Web Share API!');
+                } catch (error) {
+                    // User cancelled the share or an error occurred
+                    console.error('Error using Web Share API or user cancelled:', error.name, error.message);
+                    // Optionally, provide a subtle feedback if it wasn't a cancellation, e.g., if (error.name !== 'AbortError') alert('शेयर करने में समस्या हुई।');
+                }
+            } else { // Fallback: If Web Share API is not supported
+                console.log('Web Share API not supported. Falling back to WhatsApp URL and copy.');
+                const whatsappFallbackMessage = `✨ बक़रीद मुबारक! ✨\n\nआपको और आपके परिवार को *${sharerName}* की तरफ से ईद-उल-अज़हा की दिली मुबारकबाद!\n\nयह विशेष शुभकामना संदेश देखें:\n${generatedLinkGlobal}`;
+                
+                const copiedSuccessfully = await performCopy(
+                    generatedLinkGlobal,
+                    'लिंक क्लिपबोर्ड पर कॉपी हो गया है!',
+                    'लिंक कॉपी करने में विफल रहा।'
+                );
+
+                const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(whatsappFallbackMessage)}`;
+                
+                if (copiedSuccessfully) {
+                    alert('अब WhatsApp खुल रहा है...');
+                } else {
+                    alert('लिंक कॉपी नहीं हो सका। अब WhatsApp खुल रहा है...');
+                }
+                window.open(whatsappUrl, '_blank');
+            }
+        }
+
+        async function copyLinkOnly() {
+            if (!generatedLinkGlobal) {
+                alert("पहले 'लिंक बनाएं' पर क्लिक करें!");
+                return;
+            }
+            await performCopy(
+                generatedLinkGlobal,
+                'लिंक क्लिपबोर्ड पर कॉपी हो गया है!',
+                'लिंक कॉपी करने में विफल रहा।'
+            );
+        }
+    </script>
+
+</body>
+</html>
