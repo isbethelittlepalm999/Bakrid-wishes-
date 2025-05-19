@@ -1,13 +1,3 @@
-<script type="text/javascript">
-	atOptions = {
-		'key' : '00405786d63dd9daa1febb6bd047f001',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00405786d63dd9daa1febb6bd047f001/invoke.js"></script>
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -15,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eid-Ul-Adha Mubarak!</title>
     <style>
+        /* CSS पहले जैसा ही रहेगा */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #002244;
@@ -147,7 +138,7 @@
 
         .actions-area {
             margin-top: 20px;
-            display: none;
+            display: none; /* Initially hidden */
         }
     </style>
 </head>
@@ -178,6 +169,10 @@
         </div>
     </div>
 
+    <!-- Adsterra Social Bar Script -->
+    <script type='text/javascript' src='//pl26683600.profitableratecpm.com/c7/e3/e6/c7e3e64b95852bbe5ad4b4ab20469839.js'></script>
+    <!-- End Adsterra Script -->
+
     <script>
         const greetingElement = document.getElementById('greetingMessage');
         const nameInputElement = document.getElementById('nameInput');
@@ -195,17 +190,17 @@
 
         function createStars() {
             const container = document.getElementById('stars-container');
-            const numStars = 100; // Adjust number of stars if needed
+            const numStars = 100;
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
-                const size = Math.random() * 3 + 1; // Star size between 1px and 4px
+                const size = Math.random() * 3 + 1;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 star.style.left = `${Math.random() * 100}%`;
                 star.style.top = `${Math.random() * 100}%`;
-                star.style.animationDelay = `${Math.random() * 2}s`; // Randomize blink start
-                star.style.animationDuration = `${Math.random() * 1.5 + 1.5}s`; // Randomize blink speed
+                star.style.animationDelay = `${Math.random() * 2}s`;
+                star.style.animationDuration = `${Math.random() * 1.5 + 1.5}s`;
                 container.appendChild(star);
             }
         }
@@ -230,9 +225,26 @@
                 alert("कृपया अपना नाम दर्ज करें!");
                 return;
             }
+
+            // Adsterra का Social Bar स्क्रिप्ट (//pl26683600.profitableratecpm.com/...)
+            // पेज पर पहले से मौजूद है और यह अपने प्रदर्शन का लॉजिक खुद संभालेगा।
+            // हमें इसे दिखाने के लिए आमतौर पर कोई फंक्शन कॉल करने की आवश्यकता नहीं होती,
+            // जब तक कि Adsterra विशेष रूप से ऐसा करने के लिए कोई निर्देश न दे।
+            // यह Adsterra डैशबोर्ड में इस विज्ञापन यूनिट के लिए कॉन्फ़िगर किए गए ट्रिगर्स
+            // (जैसे पेज लोड, कुछ समय बाद, या अन्य) के आधार पर दिख सकता है।
+
+            // यदि Social Bar एक ओवरले या फुल-स्क्रीन के रूप में कॉन्फ़िगर किया गया है,
+            // तो वह अब दिखना चाहिए। जब उपयोगकर्ता इसके साथ इंटरैक्ट करेगा (जैसे इसे बंद करेगा),
+            // तो उसे नीचे की सामग्री दिखाई देगी जिसे हम अब दृश्यमान बनाने जा रहे हैं।
+            
+            console.log("Adsterra Social Bar स्क्रिप्ट सक्रिय है। विज्ञापन प्रदर्शन Adsterra द्वारा प्रबंधित किया जाता है।");
+
             const baseUrl = window.location.origin + window.location.pathname;
             generatedLinkGlobal = `${baseUrl}?from=${encodeURIComponent(currentName)}`;
-            actionsAreaDiv.style.display = 'block'; // Show action buttons
+            
+            // एक्शन बटन वाले क्षेत्र को दिखाएं।
+            // यदि विज्ञापन एक ओवरले है, तो यह विज्ञापन के बंद होने तक उसके पीछे रहेगा।
+            actionsAreaDiv.style.display = 'block'; 
         }
 
         async function performCopy(linkToCopy, successMessage, failureMessage) {
@@ -242,11 +254,10 @@
                 return true;
             } catch (err) {
                 console.error('Primary copy (navigator.clipboard) failed:', err);
-                // Fallback for older browsers or if clipboard API fails
                 const textArea = document.createElement("textarea");
                 textArea.value = linkToCopy;
                 textArea.style.position = 'fixed'; 
-                textArea.style.left = '-9999px'; // Move out of screen
+                textArea.style.left = '-9999px';
                 document.body.appendChild(textArea);
                 textArea.focus(); 
                 textArea.select();
@@ -276,9 +287,9 @@
             }
 
             const pageTitle = `✨ ${sharerName} की तरफ से बक़रीद मुबारक! ✨`;
-            const webShareBodyText = `आपको और आपके परिवार को *${sharerName}* की तरफ से ईद-उल-अज़हा की दिली मुबारकबाद!\n\nयह विशेष शुभकामना संदेश देखें:`; // URL will be added by navigator.share
+            const webShareBodyText = `आपको और आपके परिवार को *${sharerName}* की तरफ से ईद-उल-अज़हा की दिली मुबारकबाद!\n\nयह विशेष शुभकामना संदेश देखें:`;
 
-            if (navigator.share) { // Check for Web Share API support
+            if (navigator.share) {
                 try {
                     await navigator.share({
                         title: pageTitle,
@@ -287,11 +298,9 @@
                     });
                     console.log('Wish shared successfully via Web Share API!');
                 } catch (error) {
-                    // User cancelled the share or an error occurred
                     console.error('Error using Web Share API or user cancelled:', error.name, error.message);
-                    // Optionally, provide a subtle feedback if it wasn't a cancellation, e.g., if (error.name !== 'AbortError') alert('शेयर करने में समस्या हुई।');
                 }
-            } else { // Fallback: If Web Share API is not supported
+            } else {
                 console.log('Web Share API not supported. Falling back to WhatsApp URL and copy.');
                 const whatsappFallbackMessage = `✨ बक़रीद मुबारक! ✨\n\nआपको और आपके परिवार को *${sharerName}* की तरफ से ईद-उल-अज़हा की दिली मुबारकबाद!\n\nयह विशेष शुभकामना संदेश देखें:\n${generatedLinkGlobal}`;
                 
@@ -327,14 +336,3 @@
 
 </body>
 </html>
-
-<script type="text/javascript">
-	atOptions = {
-		'key' : '00405786d63dd9daa1febb6bd047f001',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/00405786d63dd9daa1febb6bd047f001/invoke.js"></script>
